@@ -1,0 +1,182 @@
+/*Design*/
+body {
+	font-family: 'Montserrat', sans-serif;
+}
+body::-webkit-scrollbar{
+	width: 0px;
+}
+html{
+	scroll-behavior: smooth;
+}
+
+/*Navbar and Index*/
+.navbarPanel{
+	position: fixed;
+	top: 0;
+    width: 100%;
+    transition: top 0.3s;
+    width: 100%;
+}
+.navbarPanel.scrolled {
+    top: -50px;
+}
+.navbarName{
+	font-weight: bold;
+	font-size: 25px;
+	margin-left: 50px;
+}
+.navbarItems a{
+	margin-right: 25px;
+	text-decoration: none;
+	color: black;
+}
+.image_1{
+	margin-top: 60px;
+	width: 80%;
+	height: 650px;
+	border-radius: 20px;
+}
+
+/*About Me*/
+.cv{
+	width: 50%;
+	float: right;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	border-radius: 10px;
+}
+.container_col{
+	display: flex;
+	border: 2px solid black;
+	border-radius: 15px;
+	margin-top: 100px;
+	margin-left: 155px;	
+	margin-right: 155px;
+	margin-bottom: 50px;
+}
+.column {
+	flex: 1;
+	padding: 10px;
+}
+.column h2{
+	margin-top: 100px;
+	margin-left: 25px;
+	font-weight: bold;
+}
+.par_1{
+	text-align: justify;
+	background-color: rgba(0,0,0,0.3);
+	border-radius: 20px;
+	padding: 10px;
+	width: 550px;
+}
+.column h5{
+	margin-left: 25px;
+	margin-top: 25px;
+	font-weight: bold;
+}
+.column ul li{
+	margin-left: 25px;
+	list-style-type: none;
+	padding: 5px;
+	display: inline-block;
+	background-color: rgba(0,0,0,0.3);
+	border-radius: 10px;
+	margin-left: -10px;
+	margin-right: 20px;
+}
+
+/*Portfolio*/
+.portfolio{
+	border: 2px solid black;
+	border-radius: 15px;
+	margin-top: 150px;
+	margin-left: 155px;
+	margin-right: 155px;
+	margin-bottom: 50px;
+}
+.container-portfolio{
+	display: flex;
+}
+.container_img1{
+	float: right;
+	margin-bottom: 50px;
+}
+.container_img2{
+	float: right;
+}
+.portfolio h1{
+	margin-top: 20px;
+	font-weight: bold;
+	text-align: center;
+}
+.portfolio h4{
+	margin-top: 30px;
+	text-align: center;
+}
+.portfolio p{
+	text-align: justify;
+	background-color: rgba(0,0,0,0.3);
+	padding: 10px;
+	border-radius: 10px;
+}
+.portfolio img{
+	width: 100%;
+	margin-top: 30px;
+	margin-left: 50px;
+	border-radius: 20px;
+	padding: 10px;
+}
+.recipeSystem{
+	margin-bottom: 20px;
+}
+.btn-inv{
+	width: 100%;
+}
+.btn-recipe{
+	width: 100%;
+}
+
+
+/*Contact List*/
+.contact{
+	margin-top: 150px;
+	margin-bottom: 50px;
+}
+.contact h1{
+	font-weight: bold;
+	text-align: center;
+}
+.socials{
+	display: flex;
+	justify-content: center;
+}
+.socials ul li{
+	margin-left: -25px;
+}
+.socials img{
+	width: 100px;
+	margin-top: 20px;
+	margin-right: 10px;
+}
+.socials ul li{
+	list-style-type: none;
+	margin-top: 10px;
+	padding: 10px;
+}
+.socials-buttons{
+	background-color: rgba(0,0,0,0.3);
+	border-radius: 20px;
+}
+.container-social{
+	padding: 20px;
+	border: 2px solid black;
+	margin-left: 155px;
+	margin-right: 155px;
+	border-radius: 20px;
+}
+
+/*Contents*/
+.content{
+/*	margin-top: 200px;*/
+}
