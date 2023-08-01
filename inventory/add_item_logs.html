@@ -1,0 +1,108 @@
+<?php
+include ("connections.php");
+include "header.php";
+session_start();
+
+if (!isset($_SESSION['login'])){
+    header("Location:login.php");
+    exit;
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Inventory</title>
+</head>
+<body>
+
+<?php include "navigation.php"; ?> 
+
+<?php
+
+$id = $_GET['ID'];
+$select = "SELECT * FROM `added_items` WHERE `add_item_id` = '$id'";
+$query = $connection->query($select) or die ($select->error);
+$row_edit = $query->fetch_assoc();
+
+$name_get = $row_edit['add_item_name'];
+$quantity_get = $row_edit['add_item_qty'];
+$status_get = $row_edit['add_item_status'];
+
+if(isset($_POST['submit'])){
+  
+  $add_item_id = $_POST['add_item_id']; //id for subtract
+  $name = $_POST['name'];
+  $item = $_POST['item'];
+  $status = $_POST['status'];
+  $date = $_POST['date'];
+
+  //subtraction of quantities
+  $old_qty = $_POST['old_qty'];
+  $logs_qty = $_POST['logs_qty'];
+  $add_qty = $old_qty-$logs_qty;
+
+  $insert = "INSERT INTO `logs_inventory`(`logs_name`, `logs_item`, `logs_quantity`, `logs_status`, `logs_date`) VALUES ('$name','$item','$logs_qty','$status','$date') ";
+  $connection->query($insert) or die ($connection->error);
+
+  $update = "UPDATE `added_items` SET `add_item_qty`= '$add_qty' WHERE `add_item_id` = '$add_item_id'";
+  $connection->query($update) or die ($connection->error);
+  echo "<script>window.location.href='added_logs.php'</script>";
+
+}
+
+?>
+
+<!-- Forms for Logs -->
+<form method="POST" onsubmit="return validate();">
+  <h1>Add to logs</h1>
+  <div class="container">
+    <div class="form-group">
+      <label> Person's Name </label> 
+      <input type="text" class="form-control" name="name" placeholder="Name:" required=""> <br> 
+
+      <label>Item</label> 
+      <input type="text"  name="" class="form-control" value="<?php echo $name_get; ?>" disabled>
+      <input type="hidden" name="item" class="form-control" value="<?php echo $name_get; ?>"> <br>
+
+      <!-- Item Quantity -->
+      <label>Item Quantity</label>
+      <input type="hidden" class="form-control" name="add_item_id" value="<?php echo $id ?>">
+      <input type="number" class="form-control" name="logs_qty" id="logs_qty" placeholder="Quantity:" required="">
+      <!-- Avail Quantity -->
+      <label> Available Quantity </label>
+      <input type="text" name="" class="form-control" value="<?php echo $quantity_get; ?>" disabled>
+      <input type="hidden" class="form-control"  name="old_qty" id="old_qty" value="<?php echo $quantity_get; ?>"><br>
+
+      <label>Item Description </label> <br>
+      <!-- <input type="text" class="form-control" name="status" placeholder="Item Status: " required=""> -->
+      <textarea class="form-control" name="status" required=""></textarea>
+      <br>
+
+      <label>Date</label> <br>
+      <input type="date"class="form-control" name="date"> <br>
+
+      <center><input type="submit" class="btn btn-success" name="submit" value="Add to Logs"></center>
+    </div>
+  </div>
+</form>
+
+<script type="text/javascript">
+  function validate(){
+    var input_text = document.getElementById("logs_qty");
+    var input_qty = document.getElementById('old_qty');
+
+    if (parseInt(input_text.value) > parseInt(input_qty.value)){
+      alert("Please enter a correct value");
+      return false;
+    }else if (parseInt(input_text.value) < 1){
+      alert("Please enter a correct value");
+      return false;
+    }else{
+      alert("Added to Logs");
+    }
+  }
+</script>
+
+</body>
+</html>
