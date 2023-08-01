@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Inventory</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+</head>
+
+<style type="text/css">
+body{
+  font-family: 'DIN Next LT Pro';
+  background-color: #253a51;
+  text-decoration: none;
+  color: white;
+  scroll-behavior: smooth;
+}
+@font-face {
+  font-family: 'DIN Next LT Pro';
+  src: local('font/DIN Next LT Pro Regular'), local('font/DIN-Next-LT-Pro-Regular'),
+  url('font/DINNextLTPro-Regular.ttf') format('truetype');
+  }
+.flex-container {
+  display: flex;
+  align-items: stretch;
+}
+.flex-container > div {
+  width: 90px;
+  margin: 10px;
+  padding:   0px  0px 30px 30px;
+}
+#wrapper{
+  width: 800px;
+  margin: 0 auto;
+}
+#button{
+  margin-bottom: 10px;
+  align-items: center;
+  height: 50px;
+}
+#add{
+  color: #5bc0de;
+  font-size: 16px;
+  font-weight: bold;
+}
+#edit{
+  color: #22bb33;
+  font-size: 16px;
+  font-weight: bold;
+}
+#discard{
+  color: #bb2124;
+  font-size: 16px;
+  font-weight: bold;
+}
+.container{
+  max-width: 540px;
+  max-height: 540px;
+}
+.thead-dark{
+  background-color: #14181e;
+}
+.edit_link{
+  color: green;
+}
+.modal-content{
+  color: black;
+}
+#btn-mod{
+  margin-left: 15px;
+}
+label{
+  font-size: 18px;
+}
+h1{
+  width: 100%;
+  font-size: 25px;
+  font-weight: bold;
+  text-decoration: underline;
+  text-align: center;
+}
+a{
+  text-decoration: none;
+}
+table, th, td{
+  text-align: center;
+/*  font-size: 18px;*/
+}
+#brand{
+  color: white;
+}
+#brand2{
+  color: orange;
+}
+#navbar{
+  background-color: #14181e;
+}
+</style>
+
+<nav class="navbar navbar-inverse" id="navbar">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <span class="navbar-brand" id="brand">CHMSC<span id="brand2"> Inventory</span></span>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="items_inv.html">Dashboard</a></li>
+      <li><a href="added_logs.html">Item Logs</a></li>
+      <li><a href="users.html">Users</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+<body>
+
+<h1>Logs</h1>
+
+<br><br>
+
+<!-- Table for Logs -->
+<table class="table table-dark" id="wrapper">
+  <thead class="thead-dark">
+    <tr>
+      <th>Name</th>
+      <th>Item</th>
+      <th>Quantity</th>
+      <th>Status</th>
+      <th>Date</th>
+      <th colspan="3">Options</th>
+    </tr>
+  </thead>
+
+
+  <tr>
+    <td>George Ibarra</td>
+    <td>A4 Tech Monitor</td>
+    <td>2</td> 
+    <td>For ICT Office</td>
+    <td>July 12, 2022</td>
+    <td>
+      <div class="dropdown">
+        <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Actions
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><a href="#"  title="Edit Logs" id="edit">Edit Logs</a></li>
+          <li><a href="#" title="Discard" id="discard">Discard</a></li>
+        </ul>
+      </div>
+    </td>
+  </tr>
+
+  <tr>
+    <td>Tony Singa</td>
+    <td>Projector</td>
+    <td>1</td> 
+    <td>For Classroom</td>
+    <td>October 19, 2022</td>
+    <td>
+      <div class="dropdown">
+        <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Actions
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><a href="#"  title="Edit Logs" id="edit">Edit Logs</a></li>
+          <li><a href="#" title="Discard" id="discard">Discard</a></li>
+        </ul>
+      </div>
+    </td>
+  </tr>
+
+</table>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>

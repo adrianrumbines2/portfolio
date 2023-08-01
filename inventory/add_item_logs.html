@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Inventory</title>
+</head>
+<body>
+<!-- Forms for Logs -->
+<form onsubmit="return validate();">
+  <h1>Add to logs</h1>
+  <div class="container">
+    <div class="form-group">
+      <label> Person's Name </label> 
+      <input type="text" class="form-control" name="name" placeholder="Name:" required=""> <br> 
+
+      <label>Item</label> 
+      <input type="text"  name="" class="form-control" value="<?php echo $name_get; ?>" disabled>
+      <input type="hidden" name="item" class="form-control" value="<?php echo $name_get; ?>"> <br>
+
+      <!-- Item Quantity -->
+      <label>Item Quantity</label>
+      <input type="hidden" class="form-control" name="add_item_id" value="<?php echo $id ?>">
+      <input type="number" class="form-control" name="logs_qty" id="logs_qty" placeholder="Quantity:" required="">
+      <!-- Avail Quantity -->
+      <label> Available Quantity </label>
+      <input type="text" name="" class="form-control" value="<?php echo $quantity_get; ?>" disabled>
+      <input type="hidden" class="form-control"  name="old_qty" id="old_qty" value="<?php echo $quantity_get; ?>"><br>
+
+      <label>Item Description </label> <br>
+      <!-- <input type="text" class="form-control" name="status" placeholder="Item Status: " required=""> -->
+      <textarea class="form-control" name="status" required=""></textarea>
+      <br>
+
+      <label>Date</label> <br>
+      <input type="date"class="form-control" name="date"> <br>
+
+      <center><input type="submit" class="btn btn-success" name="submit" value="Add to Logs"></center>
+    </div>
+  </div>
+</form>
+
+<script type="text/javascript">
+  function validate(){
+    var input_text = document.getElementById("logs_qty");
+    var input_qty = document.getElementById('old_qty');
+
+    if (parseInt(input_text.value) > parseInt(input_qty.value)){
+      alert("Please enter a correct value");
+      return false;
+    }else if (parseInt(input_text.value) < 1){
+      alert("Please enter a correct value");
+      return false;
+    }else{
+      alert("Added to Logs");
+    }
+  }
+</script>
+
+</body>
+</html>
